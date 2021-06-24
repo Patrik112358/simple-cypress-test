@@ -36,7 +36,7 @@ context('Actions', () => {
     cy.get('.cuisines').contains('Pizza').click()
     cy.get('.cuisines > .active').should('contain', 'Pizza')
 
-    // open first restaurant's menu
+    // open first open restaurant's menu
     cy.get('.button.open').first().click()
 
     // from Pizza section select first three pizzas
@@ -47,7 +47,7 @@ context('Actions', () => {
     addItem(2)
 
     // fill out order information
-    cy.get('#cartOrderButton').click()
+    cy.get('#cartOrderButton').click({waitForAnimations: false})
     cy.contains('Without login').click()
     cy.get('input#firstname').type(firstName).should('have.value', firstName)
     cy.get('input#lastname').type(lastName).should('have.value', lastName)
